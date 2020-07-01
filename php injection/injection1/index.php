@@ -6,7 +6,7 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']);
-      $sql = "SELECT * FROM admin WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT * FROM users WHERE username = '$myusername' and password = '$mypassword'";
       $sql= str_replace("\'","'",$sql);		/*to escape blanks and spaces from input*/
       $result = mysqli_query($db,$sql);		
       $count = mysqli_num_rows($result);

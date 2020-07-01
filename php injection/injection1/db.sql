@@ -19,27 +19,29 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ics`
+-- Database: ``
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL
+  `username` varchar(200) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'YourFirstSQ£Inj€cti0n@mazing');
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'christophe', 'JeSuisLeBo$$');
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(2, 'admin', 'YourFir$tSQLInjecti*n@mazing');
 
 --
 -- Indexes for dumped tables
@@ -48,7 +50,7 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 --
 -- Indexes for table `admin`
 --
-ALTER TABLE `admin`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 COMMIT;
 
