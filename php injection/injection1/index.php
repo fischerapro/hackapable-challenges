@@ -43,10 +43,11 @@
   		  $_SESSION['query_result'] = $query_result;
         header("location: welcome.php");
       }
+      else
+        $error = '<div class="alert alert-danger" role="alert">Your Login Name or Password is invalid</div>';
     }
   /* Sinon, erreur */
-  else
-	  $error = '<div class="alert alert-danger" role="alert">Your Login Name or Password is invalid</div>';
+ 
 
 /* ---- Code a utiliser pour éviter les injections ----
     
