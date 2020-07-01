@@ -1,0 +1,6 @@
+AuthName "Restricted Files"
+AuthUserFile C:/wamp/www/hackapable/verb_tampering/admin/.htpasswd
+AuthType Basic
+<Limit GET>
+Require valid-user
+</Limit>
