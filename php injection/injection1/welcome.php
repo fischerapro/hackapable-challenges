@@ -1,11 +1,4 @@
-<?php
-   include('session.php');
-?>
-
-      <h2></h2>
-		  
-	</body>
-</html>
+<?php include('session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,15 +48,20 @@
 
     <div class="row">
       </div>
-      <!-- /.col-lg-3 -->
+      
       <?php
+        /* Génération de la liste d'utilisateurs */
+        $sql = "SELECT username FROM users";
+        $result =  mysqli_fetch_all(mysqli_query($db,$sql),MYSQLI_ASSOC);
+
+        /* Initialisation des variables d'affichages */ 
       	$name = "";
       	$pass = "";
-		  if(isset($_SESSION['query_result']))
-		  {
-		  	$rows = $_SESSION['query_result'];
-		    $name = $rows[1];
-		    $pass = $rows[2];
+  		  if(isset($_SESSION['query_result']))
+  		  {
+  		  	$rows = $_SESSION['query_result'];
+  		    $name = $rows[1];
+  		    $pass = $rows[2];
 	      }
 		  ?>
 
@@ -71,18 +69,20 @@
       	
 		 <h2 class="text-center">Your credentials</h2>       
         <div class="form-group">
-        	<input type="text" name="username" placeholder="your username" class="form-control" required="" value ="<?php echo $name; ?>"> 
+        	<input type="text" name="username" placeholder="your username" class="form-control" value="<?php echo $name; ?>" disabled> 
     	</div>
-		   	<div class="form-group"><input type="password" name="password" placeholder="your password" class="form-control" required="" value="<?php echo $pass; ?>">
+		   	<div class="form-group"><input type="password" name="password" placeholder="your password" class="form-control" value="<?php echo $pass; ?>" disabled>
    	 	</div>  
 
-		
-        
+		<p>Liste des utilisateurs : </p>
+        <ul><?php foreach ($result as $key => $value) {
+          echo "<li> " . $value["username"] . "</li>";
+        } ?></ul>
 
       </div>
-      <!-- /.col-lg-9 -->
 
     </div>
+
     <!-- /.row -->
 
   </div>
