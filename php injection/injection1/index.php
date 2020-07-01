@@ -26,9 +26,10 @@
 		    foreach($rows as $row)
 			  {		
 			    $query_result[]=$row;
+          /* On vérifie que username BDD = username saisi  */
 					if(strcmp($row,$myusername))
             $username_find_flag=true;
-					  
+				  /* On vérifie que password BDD = password saisi */
 				  if(strcmp($row,$mypassword))
             $password_correct_flag=true;
 			  }
@@ -43,22 +44,11 @@
   		  $_SESSION['query_result'] = $query_result;
         header("location: welcome.php");
       }
+      /* Sinon, erreur */
       else
         $error = '<div class="alert alert-danger" role="alert">Your Login Name or Password is invalid</div>';
     }
-  /* Sinon, erreur */
- 
-
-/* ---- Code a utiliser pour éviter les injections ----
-    
-    if($count == 1){
-        $_SESSION['login_user'] = $myusername;
-        header("location: welcome.php");
-    }
-    else{
-       $error = "Your Login Name or Password is invalid";
-    }
-*/
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
