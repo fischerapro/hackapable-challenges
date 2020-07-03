@@ -6,7 +6,6 @@
   /* Initialisation des variables d'affichage */  	
   $error="";
 
-
   /* Récupération des info de saisie si post */
   if(isset($_POST['username'],$_POST['password'])) {
       $username = filter_var($_POST['username'],FILTER_SANITIZE_STRING);

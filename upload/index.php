@@ -1,6 +1,7 @@
 <?php
 if (isset($_POST['Upload'])) {
 
+            $display = "";
             $target_path = "uploads/";
             $target_path = $target_path . basename($_FILES['uploaded']['name']);
             $uploaded_name = $_FILES['uploaded']['name'];
@@ -12,41 +13,54 @@ if (isset($_POST['Upload'])) {
 
                 if(!move_uploaded_file($_FILES['uploaded']['tmp_name'], $target_path)) {
                     
-                    echo '<pre>';
-                    echo 'Your image was not uploaded.';
-                    echo '</pre>';
+                    $display.= '<div class="alert alert-danger" role="alert">';
+                    $display.= 'Your image was not uploaded.';
+                    $display.= '</div>';
                 
                   } else {
                 
-                    echo '<pre>';
-                    echo $target_path . ' succesfully uploaded!';
-                    echo '</pre>';
+                    $display.= '<div class="alert alert-success" role="alert">';
+                    $display.= ' succesfully uploaded! <br /> link : ' . $target_path ;
+                    $display.= '</div>';
                     
                     }
             }
             
             else{
                 
-                echo '<pre>';
-                echo 'Your image was not uploaded.';
-                echo '</pre>';
+                $display.= '<div class="alert alert-danger" role="alert">';
+                $display.= 'Your image was not uploaded.';
+                $display.= '</div>';
 
             }
         }
 
 ?> 
-
-<h1>Vulnerability: File Upload</h1>
-
-    <div class="vulnerable_code_area">
-
-        <form enctype="multipart/form-data" action="#" method="POST" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>File Upload</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+  </head>
+<body>
+  <div class="login-form">
+    <form enctype="multipart/form-data" action=""  method="POST">
+<?php echo $display; ?>
+         <h2 class="text-center">Image-Sharing.xyz</h2>       
+          <div class="form-group">
             <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
             Choose an image to upload:
             <br />
             <input name="uploaded" type="file" /><br />
-            <br />
-            <input type="submit" name="Upload" value="Upload" />
-        </form>
-
-      
+          </div>
+              <div class="form-group">
+                  <button type="submit" id="submit" name="Upload" value="Upload" class="btn btn-primary btn-block">Upload</button>
+            </div>
+            <div class="clearfix">
+          </div>        
+    </form>
+  </div>
+</body>
+</html>
