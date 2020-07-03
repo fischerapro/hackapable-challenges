@@ -35,7 +35,7 @@
 			  }
 	    }
 
-      /* On remlit les variables de session */ 
+      /* Si la saisie correspond, on remlit les variables de session */ 
       if($username_find_flag and $password_correct_flag)
       {
   		  $_SESSION['login_user'] = $myusername;
