@@ -1,7 +1,8 @@
 <?php
+$display = "";
 if (isset($_POST['Upload'])) {
 
-            $display = "";
+            
             $target_path = "uploads/";
             $target_path = $target_path . basename($_FILES['uploaded']['name']);
             $uploaded_name = $_FILES['uploaded']['name'];
