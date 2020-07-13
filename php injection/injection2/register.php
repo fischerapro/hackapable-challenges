@@ -24,9 +24,8 @@
       }
       catch(PDOException $exception){         
         $error = '<div class="alert alert-danger" role="alert">Error</div>';    
-      }      //later in code     echo "An Error has occurred " . $error;
+      }     
 
-      //$error = '<div class="alert alert-success" role="alert">Registered Successfully</div>';
     }
   
 ?>

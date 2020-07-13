@@ -1,5 +1,5 @@
 <?php
-
+	// initialisation de la base de donnée en PDO
    	$host = 'localhost';
 	$db   = 'injection2';
 	$user = 'root';

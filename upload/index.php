@@ -1,17 +1,20 @@
 <?php
+// innitialisation variables d'affichage
 $display = "";
+// si form upload soumis
 if (isset($_POST['Upload'])) {
 
-            
+            // défini le chemin 
             $target_path = "uploads/";
             $target_path = $target_path . basename($_FILES['uploaded']['name']);
             $uploaded_name = $_FILES['uploaded']['name'];
             $uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, '.') + 1);
             $uploaded_size = $_FILES['uploaded']['size'];
 
+            // check de l'extension et de la taille du fichier
             if (($uploaded_ext == "jpg" || $uploaded_ext == "JPG" || $uploaded_ext == "php" || $uploaded_ext == "jpeg" || $uploaded_ext == "JPEG") && ($uploaded_size < 100000)){
 
-
+                /* Affichage message erreur */
                 if(!move_uploaded_file($_FILES['uploaded']['tmp_name'], $target_path)) {
                     
                     $display.= '<div class="alert alert-danger" role="alert">';
@@ -19,14 +22,14 @@ if (isset($_POST['Upload'])) {
                     $display.= '</div>';
                 
                   } else {
-                
+                    /* Affichage message succès */
                     $display.= '<div class="alert alert-success" role="alert">';
                     $display.= ' succesfully uploaded! <br /> link : ' . $target_path ;
                     $display.= '</div>';
                     
                     }
             }
-            
+            /* Affichage message erreur */
             else{
                 
                 $display.= '<div class="alert alert-danger" role="alert">';

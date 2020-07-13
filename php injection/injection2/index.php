@@ -15,9 +15,11 @@
       $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username AND password=:password');
       $stmt->execute(['username' => $username, 'password' => md5($password)]);
       $user = $stmt->fetch();
+      /* Si utilisateur + mdp correspond */ 
       if($stmt->rowCount() == 1) {
         $_SESSION['login_user'] = $username;
         header("location: welcome.php");
+        /* Sinon erreur */
       } else {
            $error = '<div class="alert alert-danger" role="alert">Your Login Name or Password is invalid</div>';
       }

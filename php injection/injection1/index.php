@@ -1,5 +1,5 @@
 <?php
-  /* Importation de la config */
+  /* Importation de la config de la base de donnée */
   include("config.php");
   /* Démarrage de la session */
   session_start();
